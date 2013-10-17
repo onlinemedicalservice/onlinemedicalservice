@@ -1,0 +1,96 @@
+<%= form_for(@patient) do |f| %>
+  <% if @patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+      <% @patient.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div style="float:left;">
+    <label>Name </label><br>
+    <%= f.text_field :name %>
+  </div>
+  <div style="float:left;padding-left:30px;">
+    <label>Father Name </label><br>
+    <%= f.text_field :f_name %>
+  </div>
+
+  <div style="clear:both;height:6px;">&nbsp;</div>
+  <div style="float:left;">
+    <label>Date Of Birth </label><br> 
+    <%= f.text_field :dob %>
+  </div>
+  <div style="float:left;padding-left:30px;">
+    <label>Gender </label><br> 
+    <%= f.text_field :gender %>
+  </div>
+
+  <div style="clear:both;height:6px;">&nbsp;</div>
+  <div style="float:left;">
+    <label>Nationality </label><br> 
+    <%= f.text_field :nationality %>
+  </div>
+  <div style="float:left;padding-left:30px;">
+    <label>Address </label><br> 
+    <%= f.text_field :address %>
+  </div>
+
+  <div style="clear:both;height:6px;">&nbsp;</div>
+  <div style="float:left;">
+    <label>City </label><br> 
+    <%= f.text_field :city %>
+  </div>
+  <div style="float:left;padding-left:30px;">
+    <label>State </label><br> 
+    <%= f.text_field :state %>
+  </div>
+
+  <div style="clear:both;height:6px;">&nbsp;</div>
+  <div style="float:left;">
+    <label>Country </label><br> 
+    <%= f.text_field :country %>
+  </div>
+  <div style="float:left;padding-left:30px;">
+    <label>Pincode </label><br> 
+    <%= f.text_field :pincode %>
+  </div>
+
+  <div style="clear:both;height:6px;">&nbsp;</div>
+  <div style="float:left;">
+    <label>Mobile Number </label><br> 
+    <%= f.text_field :mobile_number %>
+  </div>
+  <div style="float:left;padding-left:30px;">
+    <label>Phone Number </label><br> 
+    <%= f.text_field :phone_number %>
+  </div>
+
+  <div style="clear:both;height:6px;">&nbsp;</div>
+  <div style="float:left;">
+    <label>Blood Group </label><br> 
+    <%= f.text_field :blood_group %>
+  </div>
+  <div style="float:left;padding-left:30px;">
+    <label>Qualification </label><br> 
+    <%= f.text_field :qualification %>
+  </div>
+
+  <div style="clear:both;height:6px;">&nbsp;</div>
+  <div style="float:left;">
+    <label>Occupation </label><br> 
+    <%= f.text_field :occupation %>
+  </div>
+  <div style="float:left;padding-left:30px;">
+    <label>Email </label><br> 
+    <%= f.text_field :email %>
+  </div>
+
+  <div style="clear:both;height:6px;">&nbsp;</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

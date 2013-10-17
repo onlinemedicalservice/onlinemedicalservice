@@ -1,0 +1,278 @@
+#top {
+	display:block;
+	background:url('top.png') repeat-x 0 0;
+	width:1000px;
+	height:70px;
+	margin: 0 auto;
+}
+#menu {
+	display:block;
+	background:url('bg_menu.png') repeat-x 0 0;
+	width:1000px;
+	height:50px;
+	text-align:center;
+	margin: 0 auto;
+}
+#slider {
+	display:block;
+	background:url('slider01.jpg') repeat-x 0 0;
+	width:1000;
+	height:300px;
+}
+#slider02 {
+	display:block;
+	background:url('slider02.jpg') repeat-x 0 0;
+	width:1000;
+	height:300px;
+}
+#slider03 {
+	display:block;
+	background:url('slider03.jpg') repeat-x 0 0;
+	width:1000;
+	height:300px;
+}
+#slider04 {
+	display:block;
+	background:url('slider04.jpg') repeat-x 0 0;
+	width:1000;
+	height:300px;
+}
+#slider07 {
+	display:block;
+	background:url('slider07.jpg') repeat-x 0 0;
+	width:1000;
+	height:300px;
+}
+#content {
+	background:#f9f9f9 repeat-x 0 0;
+	width:1000px;
+	margin:0px auto;
+	padding-top:25px;
+	text-align:left;
+}
+#footer {
+	background:url('bg_footer.png') repeat-x 0 0;
+	width:1000px;
+	height:70px;
+	margin:0px auto 0px 176px;
+	padding-top:8px;
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+	font-size: 10px;
+	color: #ffffff;
+	text-align:center;
+	float: left;
+}
+body {
+	background-color: #ffffff;
+	background-repeat: no-repeat;
+	background-position:top;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+body,td,th {
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	background-repeat: no-repeat;
+	text-align: justify;
+	line-height: 1.36;
+}
+h1 {
+	font-family:  Verdana, Helvetica, Arial, sans-serif;
+	color: #cc3333;
+	font-weight: normal;
+	font-size: 18px;
+	display: inline;
+}
+a:link {
+	text-decoration: underline;
+	color: #660000;
+}
+a:visited {
+	text-decoration: underline;
+	color: #660000;
+}
+a:hover {
+	text-decoration: none;
+	color: #ffffff;
+}
+a:active {
+	text-decoration: underline;
+	color: #660000;
+}
+.menulink a:link {
+	font-size: 13px;
+	text-decoration: underline;
+	color: #ffffff;
+}
+.menulink a:visited {
+	font-size: 13px;
+	text-decoration: underline;
+	color: #ffffff;
+}
+.menulink a:hover {
+	font-size: 13px;
+	text-decoration: underline;
+	background-color: #990000;
+}
+.menulink a:active {
+	font-size: 13px;
+	text-decoration: underline;
+	color: #ffffff;
+}
+.footerlink a:link {
+	text-decoration: underline;
+	color: #ffffff;
+}
+.footerlink a:visited {
+	text-decoration: underline;
+	color: #ffffff;
+}
+.footerlink a:hover {
+	text-decoration: underline;
+	background-color: #990000;
+}
+.footerlink a:active {
+	text-decoration: underline;
+	color: #ffffff;
+}
+#container {
+	width: 1000px;
+	min-height: 500px;
+	margin: 0px auto;
+	margin-top: 0px;
+	padding: 0 0 0 176px;
+	float: left;
+}
+#pagebase {
+	float:left;
+	display:block;
+	width: 1000px;
+	margin-top: 0px;
+	padding: 0;
+}
+.clearfix:after {
+     content: " "; 
+     display: block; 
+     height: 0; 
+     clear: both; 
+     visibility: hidden;
+     font-size: 0;
+}
+
+.login_box{
+	background-color: white;
+	border: 1px solid red;
+	border-radius: 5px;
+	width: 240px;
+	position: absolute;
+	right: 176px;
+	top: 110px;
+	padding: 10px;
+
+}
+
+.flash_notice{
+	color: red;
+	text-align: center;
+}
+
+#slider06 {
+	display:block;
+	background:url('slider06.jpg') repeat-x 0 0;
+	width:1000;
+	height:300px;
+}
+
+#cond {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-collapse: collapse;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color-ltr-source: physical;
+    border-left-color-rtl-source: physical;
+    border-left-color-value: black;
+    border-left-style-ltr-source: physical;
+    border-left-style-rtl-source: physical;
+    border-left-style-value: solid;
+    border-left-width-ltr-source: physical;
+    border-left-width-rtl-source: physical;
+    border-left-width-value: 1px;
+    border-right-color-ltr-source: physical;
+    border-right-color-rtl-source: physical;
+    border-right-color-value: black;
+    border-right-style-ltr-source: physical;
+    border-right-style-rtl-source: physical;
+    border-right-style-value: solid;
+    border-right-width-ltr-source: physical;
+    border-right-width-rtl-source: physical;
+    border-right-width-value: 1px;
+    border-top-color: black;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+#cond td {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: red;
+    background-image: url('red-gradient.jpg');
+    background-origin: padding-box;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color-ltr-source: physical;
+    border-left-color-rtl-source: physical;
+    border-left-color-value: black;
+    border-left-style-ltr-source: physical;
+    border-left-style-rtl-source: physical;
+    border-left-style-value: solid;
+    border-left-width-ltr-source: physical;
+    border-left-width-rtl-source: physical;
+    border-left-width-value: 1px;
+    border-right-color-ltr-source: physical;
+    border-right-color-rtl-source: physical;
+    border-right-color-value: black;
+    border-right-style-ltr-source: physical;
+    border-right-style-rtl-source: physical;
+    border-right-style-value: solid;
+    border-right-width-ltr-source: physical;
+    border-right-width-rtl-source: physical;
+    border-right-width-value: 1px;
+    border-top-color: black;
+    border-top-style: solid;
+    border-top-width: 1px;
+    color: white;
+    font-weight: 700;
+}
+
+.clearfix {display: inline-block;}
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* 
+
+
+

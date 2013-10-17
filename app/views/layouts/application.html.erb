@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Medical Service</title>
+  <%= stylesheet_link_tag "application", "style", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "jquery-1.10.2.min", "jquery-1.10.2" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+</div>
+<%= render :partial => 'layouts/header' %> 
+<%= yield %> 
+<%= render :partial => 'layouts/footer' %>
+</body>
+</html>
+<script type="text/javascript">
+   // $(".flash_notice").click(function(){
+   // 		$(this).hide();
+   // })
+</script>

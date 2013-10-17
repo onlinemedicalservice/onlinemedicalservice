@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Medical Service</title>
+  <%= stylesheet_link_tag "application", "style", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "jquery-1.10.2.min", "jquery-1.10.2" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+</div>
+<%= render :partial => 'layouts/header' %> .
+<div style="display:none;" class="login_box">
+	<%= render :partial => "devise/sessions/form" %>
+</div>
+<%= yield %> 
+<%= render :partial => 'layouts/footer' %>
+</body>
+</html>
+<script type="text/javascript">
+   $(".flash_notice").click(function(){
+   		$(this).hide();
+   })
+
+	$(".login").click(function(){
+  		$(".login_box").toggle();
+  })
+  <% if params[:from_sign_in] == 'true' %>
+  		$(".login").trigger('click');
+  <% end %>
+
+</script>
+
+<style type="text/css">
+/*#footer{
+	margin-left: 176px;
+}*/
+</style>
