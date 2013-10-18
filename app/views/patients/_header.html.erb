@@ -1,7 +1,7 @@
 <div id="menu" class="menulink">
  	<img src="/assets/blank.gif" height="15" width="1" border="0">
 		<br>
-    <a href="/patients">Home</a> &nbsp;  &nbsp;  &nbsp;<a href="#">Request an Appointment</a> &nbsp;  &nbsp;  &nbsp; <a href="#">Make a Complaint</a> &nbsp;  &nbsp;  &nbsp; <a href="#">Feedback</a> &nbsp;  &nbsp;  &nbsp; <span><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></span>
+    <a href="/patients">Home</a> &nbsp;  &nbsp;  &nbsp;<a href="<%= new_appointment_path %>">Request an Appointment</a> &nbsp;  &nbsp;  &nbsp; <a href="#">Make a Complaint</a> &nbsp;  &nbsp;  &nbsp; <a href="#">Feedback</a> &nbsp;  &nbsp;  &nbsp; <span><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></span>
 </div>
 
 
