@@ -1,4 +1,6 @@
 class Patient < ActiveRecord::Base
+
+  has_one :appointment
   belongs_to :user
   #attr_accessible :name,:f_name,
 
