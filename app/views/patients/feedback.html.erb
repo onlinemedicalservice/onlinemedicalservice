@@ -1,0 +1,17 @@
+<%= render :partial => "patients/header"  %>
+<%= form_tag ("/patients/#{@patient.id}/feedback_response") do |f| %>
+
+<div id="container">
+  <div id="notice"></div>	
+
+  <div style="float:left;">
+    <label>Feedback </label><br>
+    <%= text_area_tag :feedback %>
+  </div>
+ 
+  <div style="clear:both;height:10px;"></div>
+  <%= submit_tag "submit" %>
+  <%= link_to "Cancel", patient_path() %>
+</div>
+
+<% end %>

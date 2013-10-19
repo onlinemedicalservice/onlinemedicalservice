@@ -4,7 +4,9 @@ class PatientsController < ApplicationController
   # GET /patients
   # GET /patients.json
   def index
-    @patients
+    @patient = Patient.find_by_user_id(current_user.id)
+    p "******************"
+    p @patient
   end
 
   # GET /patients/1
@@ -50,6 +52,25 @@ class PatientsController < ApplicationController
       end
     end
   end
+
+  def feedback
+    @patient = Patient.find_by_user_id(current_user.id)
+  end  
+
+  def feedback_response
+    @feedback = Feedback.new
+    @feedback.feedback = params[:feedback]
+    @feedback.patient_id = params[:id]
+    @patient=Patient.find_by_id(params[:id])
+    respond_to do |format|
+      if @feedback.save
+          format.html { redirect_to @patient}
+      else
+          format.html { redirect_to feedback_patient_url(@patient.id), notice: "Feedback cann't be blank"}
+      end
+    end    
+
+  end  
 
   # DELETE /patients/1
   # DELETE /patients/1.json

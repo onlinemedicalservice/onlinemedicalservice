@@ -11,8 +11,13 @@ Vmh::Application.routes.draw do
   get 'what_we_do', to: 'home#what_we_do'
   get 'conditions', to: 'home#conditions'
   get 'privacy', to: 'home#privacy'
-  
-  resources :patients 
+   
+  resources :patients do
+    member do
+      get 'feedback'
+      post 'feedback_response'
+    end  
+  end   
 
   # You can have the root of your site routed with "root"
    root 'users#index'
