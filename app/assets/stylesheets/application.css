@@ -11,9 +11,10 @@
  *= require_self
  *= require_tree .
  */
-#txt {border: 1px solid #f9f9f9;}
+#txt {border: 1px solid #f9f9f9;margin: 50px 175px -25px 0;float: right;}
 .color-grade {
     font-size: x-large;float: left;font-style: italic;margin-left: 90px;
+    width: 100px;
     /* IE10 Consumer Preview */
     background-image: -ms-linear-gradient(left, #FFFFFF 0%, #00A3EF 100%);
 

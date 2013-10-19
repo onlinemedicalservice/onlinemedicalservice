@@ -1,5 +1,7 @@
 Vmh::Application.routes.draw do
   
+  resources :complaints
+
   resources :appointments
 
   devise_for :users
