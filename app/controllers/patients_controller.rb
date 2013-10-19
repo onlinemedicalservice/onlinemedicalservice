@@ -92,4 +92,13 @@ class PatientsController < ApplicationController
     def patient_params
       params.require(:patient).permit(:name, :f_name, :dob, :city, :country, :state, :blood_group, :mobile_number, :phone_number, :occupation, :email, :qualification, :address )
     end
+
+    def patient_dashboard
+      @patient = current_user.patient
+      all =  @patient.appointments
+      all = all || @patient.complaints
+      #all = all || @patient.feedbacks
+    end
+
+
 end

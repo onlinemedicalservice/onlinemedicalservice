@@ -7,9 +7,12 @@
   <%= javascript_include_tag "jquery-1.10.2.min", "jquery-1.10.2" %>
   <%= csrf_meta_tags %>
 </head>
-<body  onload="startTime()">
-<%= render :partial => 'layouts/header' %> 
-<%= yield %> 
+<body>
+<%= render :partial => 'layouts/header' %>
+<div id="container">
+  <%= yield %>
+  <span id="time"> </span>
+</div>
 <%= render :partial => 'layouts/footer' %>
 </body>
 </html>
@@ -17,4 +20,6 @@
    // $(".flash_notice").click(function(){
    // 		$(this).hide();
    // })
+
+   $("#time").load(startTime());
 </script>

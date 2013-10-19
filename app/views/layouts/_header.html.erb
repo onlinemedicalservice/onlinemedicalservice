@@ -3,14 +3,20 @@
 
 </div><!-- End top --><div class="color-grade" id="txt"></div>
 <div id="menu" class="menulink">
-<% if !user_signed_in? %>
- <img src="/assets/blank.gif" height="15" width="1" border="0">
-	<br>
-	<a href="<%= $base_url %>">HOME</a> &nbsp;  &nbsp;  &nbsp; <a href="/who_we_are">WHO WE ARE</a> &nbsp;  &nbsp;  &nbsp; <a href="/what_we_do">WHAT WE DO</a> &nbsp;  &nbsp;  &nbsp; <a href="/conditions">CONDITIONS WE TREAT</a> &nbsp;  &nbsp;  &nbsp; <a href="/contact">CONTACT US</a> &nbsp;  &nbsp;  &nbsp; <span class="login"><a href="javascript:void(0)">LOGIN</a></span>
-
-<% end %>
-<a href="/patients">Home</a> &nbsp;  &nbsp;  &nbsp;<a href="<%= new_appointment_path %>">Request an Appointment</a> &nbsp;  &nbsp;  &nbsp; <a href="#">Make a Complaint</a> &nbsp;  &nbsp;  &nbsp; <a href="#">Feedback</a> &nbsp;  &nbsp;  &nbsp; <span><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></span>
+  <img src="/assets/blank.gif" height="15" width="1" border="0">
+  <br>
+   <% if !user_signed_in? %>
+       <a href="<%= $base_url %>">HOME</a> &nbsp;  &nbsp;  &nbsp; <a href="/who_we_are">WHO WE ARE</a> &nbsp;  &nbsp;  &nbsp; <a href="/what_we_do">WHAT WE DO</a> &nbsp;  &nbsp;  &nbsp; <a href="/conditions">CONDITIONS WE TREAT</a> &nbsp;  &nbsp;  &nbsp; <a href="/contact">CONTACT US</a> &nbsp;  &nbsp;  &nbsp; <span class="login"><a href="javascript:void(0)">LOGIN</a></span>
+   <% elsif current_user.user_type  == "Patient" %>
+       <a href="/patients">Home</a> &nbsp;  &nbsp;  &nbsp;<a href="<%= new_appointment_path %>">Request an Appointment</a> &nbsp;  &nbsp;  &nbsp; <a href="<%= new_complaint_path %>">Make a Complaint</a> &nbsp;  &nbsp;  &nbsp; <a href="/patients/<%= current_user.patient.id %>/feedback">Feedback</a> &nbsp;  &nbsp;  &nbsp; <span><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></span>
+   <% end %>
 </div><!-- End menu -->
+
+
+
+
+
+
 <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, :class => "flash_notice" if user_signed_in? %>
 <% end %>
