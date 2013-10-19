@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     if @user && @user.patient && !@user.patient.patient_info_completed
      redirect_to edit_patient_url(@user.patient)
     else
-      redirect_to patients_path
+      redirect_to patient_url(@user.patient)
     end
   end
 
