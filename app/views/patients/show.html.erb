@@ -1,4 +1,104 @@
 <p id="notice"><%= notice %></p>
 
+<div style="width:250px;height:250px;background-color:gray;float:left;text-align: center;font: 20px white;">
+	Upload Photo
+</div>
+	
+<div style="float:left;padding-left: 50px;">	
+	<div style="float:left;">
+    <label>Name </label>
+    <p><%= @patient.name %></p>
+  </div>
+  <div style="float:left;padding-left:30px;">
+    <label>Father Name </label>
+    <p><%= @patient.f_name %></p>
+  </div>
+
+  <div style="clear:both;height:6px;">&nbsp;</div>
+  <div style="float:left;">
+    <label>Date Of Birth </label> 
+    <p><%= @patient.dob %></p>
+  </div>
+  <div style="float:left;padding-left:30px;">
+    <label>Gender </label> 
+    <p><%= @patient.gender %></p>
+  </div>
+
+  <div style="clear:both;height:6px;">&nbsp;</div>
+  <div style="float:left;">
+    <label>Nationality </label> 
+    <p><%= @patient.nationality %></p>
+  </div>
+  <div style="float:left;padding-left:30px;">
+    <label>Address </label> 
+    <p><%= @patient.address %></p>
+  </div>
+
+  <div style="clear:both;height:6px;">&nbsp;</div>
+  <div style="float:left;">
+    <label>City </label> 
+    <p><%= @patient.city %></p>
+  </div>
+  <div style="float:left;padding-left:30px;">
+    <label>State </label> 
+    <p><%= @patient.state %></p>
+  </div>
+
+  <div style="clear:both;height:6px;">&nbsp;</div>
+  <div style="float:left;">
+    <label>Country </label> 
+    <p><%= @patient.country %></p>
+  </div>
+  <div style="float:left;padding-left:30px;">
+    <label>Pincode </label> 
+    <p><%= @patient.pincode %><p>
+  </div>
+
+  <div style="clear:both;height:6px;">&nbsp;</div>
+  <div style="float:left;">
+    <label>Mobile Number </label> 
+    <p><%= @patient.mobile_number %></p>
+  </div>
+  <div style="float:left;padding-left:30px;">
+    <label>Phone Number </label> 
+    <p><%= @patient.phone_number %></p>
+  </div>
+
+  <div style="clear:both;height:6px;">&nbsp;</div>
+  <div style="float:left;">
+    <label>Blood Group </label> 
+    <p><%= @patient.blood_group %></p>
+  </div>
+  <div style="float:left;padding-left:30px;">
+    <label>Qualification </label> 
+    <p><%= @patient.qualification %></p>
+  </div>
+
+  <div style="clear:both;height:6px;">&nbsp;</div>
+  <div style="float:left;">
+    <label>Occupation </label> 
+    <p><%= @patient.occupation %></p>
+  </div>
+  <div style="float:left;padding-left:30px;">
+    <label>Email </label> 
+    <p><%= @patient.email %></p>
+  </div>
+
+</div>
 	<!-- <%#= link_to 'Edit', edit_patient_path(@patient) %> | -->
 	<%#= link_to 'Back', patients_path %>
+<style type="text/css">
+	
+label {
+    color: #AAAAAA;
+    font-size: 16px;
+}
+
+
+p {
+    color: #333333;
+    font-size: 18px;
+    margin: 5px 0px;
+    width: 250px;
+}
+</style>

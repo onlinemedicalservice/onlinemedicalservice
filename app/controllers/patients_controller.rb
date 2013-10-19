@@ -4,9 +4,12 @@ class PatientsController < ApplicationController
   # GET /patients
   # GET /patients.json
   def index
-    @patient = Patient.find_by_user_id(current_user.id)
-    p "******************"
-    p @patient
+  respond_to do |format|
+    format.html
+    format.json {
+      @patients = patient_dashboard
+    } 
+  end  
   end
 
   # GET /patients/1
@@ -90,14 +93,16 @@ class PatientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def patient_params
-      params.require(:patient).permit(:name, :f_name, :dob, :city, :country, :state, :blood_group, :mobile_number, :phone_number, :occupation, :email, :qualification, :address )
+      params.require(:patient).permit(:name, :f_name, :dob, :gender, :city, :country, :state, :blood_group, :mobile_number, :phone_number, :occupation, :email, :qualification, :address, :nationality, :pincode )
     end
 
     def patient_dashboard
       @patient = current_user.patient
       all =  @patient.appointments
-      all = all || @patient.complaints
-      #all = all || @patient.feedbacks
+      all = all | @patient.complaints
+      all = all | @patient.feedbacks
+    
+      return all
     end
 
 

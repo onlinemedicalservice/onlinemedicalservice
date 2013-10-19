@@ -22,11 +22,13 @@
   <div style="clear:both;height:6px;">&nbsp;</div>
   <div style="float:left;">
     <label>Date Of Birth </label><br> 
-    <%= f.text_field :dob %>
+    <%= f.text_field :dob, :id=>'datepicker' %>
   </div>
+
   <div style="float:left;padding-left:30px;">
-    <label>Gender </label><br> 
-    <%= f.text_field :gender %>
+    <label>Gender</label><br/>
+        <%= f.radio_button :gender, "Male", :style=>"margin-top: 10px;" %> <span style="color:#AAAAAA">Male</span>
+        <%= f.radio_button :gender, "Female", :style =>"margin-left:20px;" %> <span style="color:#AAAAAA">Female</span>
   </div>
 
   <div style="clear:both;height:6px;">&nbsp;</div>
@@ -94,3 +96,21 @@
     <%= f.submit %>
   </div>
 <% end %>
+<script type="text/javascript">
+ $("#datepicker").datepicker({
+          dateFormat: 'yy-mm-dd',
+          changeMonth: true, 
+          changeYear: true,
+           onSelect: function(dates)  { 
+               $(this).css('color','black');
+           }
+     });
+</script>
+
+<!--  $(function() {
+$( "#datepicker" ).datepicker();
+});
+</script>
+</head>
+<body>
+<p>Date: <input type="text" id="datepicker" /></p> -->
