@@ -1,8 +1,9 @@
 class Patient < ActiveRecord::Base
 
-  has_many :appointment
+  has_many :appointments
   belongs_to :user
   has_many :feedbacks
+  has_many :complaints
   #attr_accessible :name,:f_name,
   
   def patient_info_completed
