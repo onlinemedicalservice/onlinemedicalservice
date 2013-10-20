@@ -11,7 +11,7 @@
  *= require_self
  *= require_tree .
  */
-#txt {border: 1px solid #ffffff;margin: 50px 174px;float: right;}
+#txt {margin: 50px 175px -25px 0;float: right;}
 .color-grade {
     font-size: x-large;float: left;font-style: italic;margin-left: 90px;
     width: 100px;

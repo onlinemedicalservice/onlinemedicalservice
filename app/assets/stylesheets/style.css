@@ -163,14 +163,14 @@ a:active {
 }
 
 .login_box{
-	background-color: white;
+	background-color: red;
 	border: 1px solid #a1a1a1;
-	border-radius: 15px;
+	border-radius: 5px;
 	width: 240px;
 	position: absolute;
 	right: 176px;
 	top: 110px;
-	padding: 10px 40px;
+	padding: 10px;
 }
 
 .flash_notice{
