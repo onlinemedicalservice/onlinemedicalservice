@@ -8,7 +8,7 @@
    <% if !user_signed_in? %>
        <a href="<%= $base_url %>">HOME</a> &nbsp;  &nbsp;  &nbsp; <a href="/who_we_are">WHO WE ARE</a> &nbsp;  &nbsp;  &nbsp; <a href="/what_we_do">WHAT WE DO</a> &nbsp;  &nbsp;  &nbsp; <a href="/conditions">CONDITIONS WE TREAT</a> &nbsp;  &nbsp;  &nbsp; <a href="/contact">CONTACT US</a> &nbsp;  &nbsp;  &nbsp; <span class="login"><a href="javascript:void(0)">LOGIN</a></span>
    <% elsif current_user.user_type  == "Patient" %>
-       <a href="/patients">Home</a> &nbsp;  &nbsp;  &nbsp;<a href="<%= new_appointment_path %>">Request an Appointment</a> &nbsp;  &nbsp;  &nbsp; <a href="<%= new_complaint_path %>">Make a Complaint</a> &nbsp;  &nbsp;  &nbsp; <a href="/patients/<%= current_user.patient.id %>/feedback">Feedback</a> &nbsp;  &nbsp;  &nbsp; <span><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></span>
+       <a href="/patients">Home</a> &nbsp;  &nbsp;  &nbsp;<%= link_to "Request an Appointment",new_appointment_url,:remote => :true %> &nbsp;  &nbsp;  &nbsp; <a href="<%= new_complaint_path %>">Make a Complaint</a> &nbsp;  &nbsp;  &nbsp; <a href="/patients/<%= current_user.patient.id %>/feedback">Feedback</a> &nbsp;  &nbsp;  &nbsp; <span><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></span>
    <% end %>
 </div><!-- End menu -->
 

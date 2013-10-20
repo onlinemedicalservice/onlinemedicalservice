@@ -164,14 +164,13 @@ a:active {
 
 .login_box{
 	background-color: white;
-	border: 1px solid red;
-	border-radius: 5px;
+	border: 1px solid #a1a1a1;
+	border-radius: 15px;
 	width: 240px;
 	position: absolute;
 	right: 176px;
 	top: 110px;
-	padding: 10px;
-
+	padding: 10px 40px;
 }
 
 .flash_notice{
@@ -272,7 +271,6 @@ a:active {
 /* Hides from IE-mac \*/
 * html .clearfix {height: 1%;}
 .clearfix {display: block;}
-/* 
 
 
 

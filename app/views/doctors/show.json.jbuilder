@@ -1,0 +1,1 @@
+json.extract! @doctor, :name, :dob, :gender, :nationality, :address, :city, :state, :country, :pincode, :mobile_number, :phone_number, :blood_group, :qualification, :email, :user_id, :admin_id, :specialization, :designation, :created_at, :updated_at
