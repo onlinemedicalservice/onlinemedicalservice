@@ -1,5 +1,7 @@
 Vmh::Application.routes.draw do
   
+  resources :doctors
+
   resources :complaints
 
   resources :appointments

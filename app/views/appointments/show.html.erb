@@ -20,18 +20,23 @@
     <%= @appointment.description %>
   </p>
 
+
 <p>
   <strong>Appointment date:</strong>
   <%= date_format(@appointment.appointment_date) %>
+  <strong>Appointment Time:</strong>
+  <%= date_format(@appointment.appointment_date).strftime("%I:%M %P") %>
 </p>
 
 <p>
   <strong>Allotment date:</strong>
   <%= date_format(@appointment.allotment_date) %>
+  <strong>Allotment Time:</strong>
+  <%= date_format(@appointment.allotment_date).strftime("%I:%M %P") %>
 </p>
 
 
 
-<%#= link_to 'Edit', edit_appointment_path(@appointment) %> |
+<!--<%#= link_to 'Edit', edit_appointment_path(@appointment) %> |-->
 <%#= link_to 'Back', appointments_path %>
 </div>
