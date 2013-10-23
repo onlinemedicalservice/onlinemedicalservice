@@ -12,7 +12,7 @@
    <% end %>
  </div><!-- End menu -->
 
- <div class="drop" style="display:block;">
+ <div class="drop" style="display:none;">
           <ul id="app_menu">
             <li>
               <ul>
@@ -64,8 +64,6 @@
     padding-top: 0;
     width: 160px;
 }  
-
-
 
 #app_menu {
     background-repeat: repeat-x;
@@ -171,10 +169,11 @@
 </style>
 
 <script>
-     // $("#align_App").mouseover(function(){
-     //  $(".drop").show();
-     // });
-     //  $(".drop #app_menu ul li:last-child").mouseout(function(){
-     //  $(".drop").hide();
-     // });
+     $("#align_App").mouseover(function(){
+      $(".drop").show();
+     });
+      $(".drop #app_menu ul li:last-child").mouseout(function(){
+      $(".drop").hide();
+     });
 </script>
+
