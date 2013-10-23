@@ -12,6 +12,8 @@
 	height:50px;
 	text-align:center;
 	margin: 0 auto;
+	text-shadow: 0 1px 0 #000000;
+	font-weight: bold;
 }
 #slider {
 	display:block;

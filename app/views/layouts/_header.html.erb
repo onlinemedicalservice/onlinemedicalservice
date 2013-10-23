@@ -8,15 +8,173 @@
    <% if !user_signed_in? %>
        <a href="<%= $base_url %>">HOME</a> &nbsp;  &nbsp;  &nbsp; <a href="/who_we_are">WHO WE ARE</a> &nbsp;  &nbsp;  &nbsp; <a href="/what_we_do">WHAT WE DO</a> &nbsp;  &nbsp;  &nbsp; <a href="/conditions">CONDITIONS WE TREAT</a> &nbsp;  &nbsp;  &nbsp; <a href="/contact">CONTACT US</a> &nbsp;  &nbsp;  &nbsp; <span class="login"><a href="javascript:void(0)">LOGIN</a></span>
    <% elsif current_user.user_type  == "Patient" %>
-       <a href="/patients/<%= current_user.patient.id %>">Home</a> &nbsp;  &nbsp;  &nbsp;<a href="/appointments">Appointments</a> &nbsp;  &nbsp;  &nbsp; <a href="/complaints">Complaints</a> &nbsp;  &nbsp;  &nbsp; <a href="/patients/<%= current_user.patient.id %>/feedback">Feedback</a> &nbsp;  &nbsp;  &nbsp; <span><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></span>
+       <span id="align"><a href="/patients/<%= current_user.patient.id %>">Home</a></span>&nbsp;  &nbsp;  &nbsp;<span id="align_App"><a href="/appointments">Appointments</a> </span>&nbsp;  &nbsp;  &nbsp; <span  id="align"><a href="/complaints">Complaints</a> </span>&nbsp;  &nbsp;  &nbsp; <span id="align"><a href="/patients/<%= current_user.patient.id %>/feedback">Feedback</a></span> &nbsp;  &nbsp;  &nbsp; <span id="align"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></span>
    <% end %>
-</div><!-- End menu -->
+ </div><!-- End menu -->
+
+ <div class="drop" style="display:block;">
+          <ul id="app_menu">
+            <li>
+              <ul>
+                <li><a href=" /appointments/new">New Appointment</a></li>
+                <li><a href=" /appointments">All Appointment</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+<style type="text/css">
+	#align, #align_App{
+		width: 290px !important;
+    padding: 10px 30px;
+	}
+
+#app_menu, .drop {
+  width: 150px;
+  padding-left: 188px;
+  margin-top: -10px;
+  z-index: 99999;
+  margin-bottom: -30px;
+}
+
+.drop a:link {
+    -moz-text-blink: none;
+    -moz-text-decoration-color: -moz-use-text-color;
+    -moz-text-decoration-line: underline;
+    -moz-text-decoration-style: solid;
+    color: #FFFFFF;
+    font-size: 13px;
+    padding-left: 15px;
+}
+#app_menu ul li {
+    background-color: #ca1313;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-top-left-radius: 2px;
+    box-shadow: 0 1px 0 #111111, 0 2px 0 #777777;
+    display: block;
+    float: none;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    width: 160px;
+}  
 
 
 
+#app_menu {
+    background-repeat: repeat-x;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+  /*  font-family: 'pt_sans_narrow',arial,verdana;*/
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+}
+#app_menu li {
+    float: left;
+    line-height: 0;
+    position: relative;
+}
 
+#app_menu a {
+    -moz-font-feature-settings: normal;
+    -moz-font-language-override: normal;
+    -moz-text-blink: none;
+    -moz-text-decoration-color: -moz-use-text-color;
+    -moz-text-decoration-line: none;
+    -moz-text-decoration-style: solid;
+    -x-system-font: none;
+    color: #FFFFFF;
+    float: left;
+    /*font-family: 'pt_sans_narrow',arial,verdana;*/
+    font-size: 12px;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    height: 15px;
+    line-height: 27px;
+    padding-bottom: 0;
+    padding-left: 10px;
+    padding-right: 0;
+    padding-top: 8px;
+    text-shadow: 0 1px 0 #000000;
+    text-transform: uppercase;
+}
+#app_menu li:hover > a {
+    color: #FAFAFA;
+}
+#app_menu li a:hover {
+    color: #FAFAFA;
+}
+#app_menu li:hover > ul {
+    display: block;
+}
 
+#app_menu ul ul {
+    left: 150px;
+    top: 0;
+}
 
-<% flash.each do |name, msg| %>
-    <%#= content_tag :div, msg, :class => "flash_notice" if user_signed_in? %>
-<% end %>
+#app_menu ul a {
+    display: block;
+    float: none;
+    height: auto;
+    line-height: 1;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    text-transform: none;
+    white-space: nowrap;
+    width: 140px;
+}
+#app_menu ul a:hover {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: #ca1313;
+    background-image: none;
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: repeat;
+    background-size: auto auto;
+    text-decoration: underline;
+    width: 140px !important;
+}
+#app_menu:after {
+    clear: both;
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+}
+#app_menu ul li:last-child {
+    box-shadow: none;
+}
+#app_menu ul li:first-child {
+ border-bottom: 1px solid #d2d2d2;
+}
+</style>
+
+<script>
+     // $("#align_App").mouseover(function(){
+     //  $(".drop").show();
+     // });
+     //  $(".drop #app_menu ul li:last-child").mouseout(function(){
+     //  $(".drop").hide();
+     // });
+</script>
