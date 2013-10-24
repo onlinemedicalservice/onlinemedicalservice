@@ -11,11 +11,11 @@ class User < ActiveRecord::Base
   after_save :patient_create, :on => create
 
   def set_user_type
-    self.user_type = "Patient"
+    self.user_type = "Patient" if self.user_type.blank?
   end
 
   def patient_create
-    Patient.create(:user_id => self.id)
+    Patient.create(:user_id => self.id) if self.user_type == "Patient"
   end
 
 end
