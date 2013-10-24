@@ -28,7 +28,7 @@ class DoctorsController < ApplicationController
 
     respond_to do |format|
       if @doctor.save
-        format.html { redirect_to @doctor, notice: 'Doctor was successfully created.' }
+        format.html { redirect_to @doctor, notice: 'Doctor was successfully created.Your mobile number is login password.' }
         format.json { render action: 'show', status: :created, location: @doctor }
       else
         format.html { render action: 'new' }
