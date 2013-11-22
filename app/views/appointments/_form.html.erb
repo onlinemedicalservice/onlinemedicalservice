@@ -1,16 +1,16 @@
 <%= form_for(@appointment) do |f| %>
-  <!--<div class="field">-->
-    <%#= f.label :patient_id %><!--<br>-->
-    <!--<%#= f.number_field :patient_id %>-->
-  <!--</div>-->
-  <!--<div class="field">-->
-    <%#= f.label :doctor_id %><!--<br>-->
-    <!--<%#= f.number_field :doctor_id %>-->
-  <!--</div>-->
-  <!--<div class="field">-->
-    <%#= f.label :kiosk_id %><!--<br>-->
-    <!--<%#= f.number_field :kiosk_id %>-->
-  <!--</div>-->
+  <div class="field">
+    <%#= f.label :patient_id %><br>
+    <%#= f.number_field :patient_id %>
+  </div>
+  <div class="field">
+    <%= f.label :doctor_id %><br>
+    <%= f.select :doctor_id, @doctor.collect {|p| [ p.name, p.id ] }, {include_blank: 'Select Doctor'} %>
+  </div>
+  <div class="field">
+    <%#= f.label :kiosk_id %><br>
+    <%#= f.select :kiosk_id, @koisk.collect {|p| [ p.name, p.id ] }, {include_blank: 'Select kiosk'} %>
+  </div>
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
