@@ -1,6 +1,6 @@
 class Doctor < ActiveRecord::Base
   has_many :appointments
-  before_save :create_user
+  # before_save :create_user
 
   validates_presence_of :name, :dob, :city , :email, :mobile_number
 

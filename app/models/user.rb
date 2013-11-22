@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   #Associations
   has_one :patient
+  has_one :doctor
 
   before_save :set_user_type, :on => create
   after_save :patient_create, :on => create

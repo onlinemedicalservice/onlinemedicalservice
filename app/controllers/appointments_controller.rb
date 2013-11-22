@@ -10,6 +10,9 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
+    @doctor = Doctor.all
+    # @kiosk = current_user.kiosk if current_user.kiosk
+    # @patient = current_user.patient if current_user.patient
     respond_to do |format|
       format.html
       format.js

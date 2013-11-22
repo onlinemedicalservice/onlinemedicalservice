@@ -276,3 +276,31 @@ a:active {
 
 
 
+ table {
+    border: 1px solid gray;
+    width: 98%;
+    margin-left: 10px;
+  }
+
+  table th {
+    height: 50px;
+    border-bottom: 1px solid gray;
+    background-color: #B40404;
+    text-align: center;
+    width: 50px;
+    color: white;
+  }
+
+  table td {
+    width: 50px;
+    padding-left: 10px;
+  }
+
+  .header{
+    font-family:  Verdana, Helvetica, Arial, sans-serif;
+    color: #cc3333;
+    font-weight: normal;
+    font-size: 22px;
+    text-align: center;
+    margin-top: 20px;
+  }
