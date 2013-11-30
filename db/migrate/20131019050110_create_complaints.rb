@@ -6,7 +6,7 @@ class CreateComplaints < ActiveRecord::Migration
       t.integer :doctor_id
       t.string :subject
       t.string :description
-
+      t.string :status
       t.timestamps
     end
   end
