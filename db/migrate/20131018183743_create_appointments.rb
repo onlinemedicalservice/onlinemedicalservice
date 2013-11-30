@@ -7,6 +7,7 @@ class CreateAppointments < ActiveRecord::Migration
       t.datetime :appointment_date
       t.datetime :allotment_date
       t.text :description
+      t.string :status
 
       t.timestamps
     end

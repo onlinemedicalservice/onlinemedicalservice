@@ -11,7 +11,7 @@ class CreatePatients < ActiveRecord::Migration
       t.string :state
       t.string :country
       t.integer :pincode
-      t.integer :mobile_number
+      t.string :mobile_number
       t.string :phone_number
       t.string :blood_group
       t.string :qualification
