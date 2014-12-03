@@ -1,58 +1,97 @@
 # config valid only for Capistrano 3.1
-lock '3.1.0'
+require 'bundler/capistrano'
 
 set :application, 'onlinemedicalservice'
-set :repo_url, 'git@github.com:onlinemedicalservice/onlinemedicalservice.git'
+set :repository, 'git@github.com:prakashlaxkar/onlinemedicalservice.git'
+# set :deploy_to,  "apps/onlinemedicalservice"
+set :applicationdir,  "apps/onlinemedicalservice"
+set :user, "ubuntu"
 
-# Default branch is :master
-# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
-
-# Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/apps/onlinemedicalservice'
-
-# Default value for :scm is :git
+set :use_sudo, false
 set :scm, :git
+set :keep_releases, 2
+set :rails_env, "production"
+set :precompile_only_if_changed, true
 
-# Default value for :format is :pretty
-# set :format, :pretty
 
-# Default value for :log_level is :debug
-set :log_level, :debug
+# deploy config
+set :deploy_to, "apps/onlinemedicalservice"
+set :deploy_via, :export
 
-# Default value for :pty is false
-# set :pty, true
+# additional settings
+default_run_options[:pty] = true  # Forgo errors when deploying from windows
+default_run_options[:shell] = '/bin/bash --login'
 
-# Default value for :linked_files is []
-set :linked_files, %w{config/database.yml}
+# ssh_options[:keys] = ["/home/animesh/.ssh/animesh.pem"]
 
-# Default value for linked_dirs is []
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+ssh_options[:keys] = %w(/Path/To/id_rsa)            # If you are using ssh_keys
 
-# Default value for default_env is {}
- set :default_env, { path: "/opt/ruby/bin:$PATH" }
+after "deploy:update_code", "deploy:copy_configs"
 
-# Default value for keep_releases is 5
-# set :keep_releases, 5
+task :prod do
+  set :domain, "54.149.56.223"
+  set :repository, "git@github.com:prakashlaxkar/onlinemedicalservice.git"
+  set :local_repository, "git@github.com:prakashlaxkar/onlinemedicalservice.git"
+  set :branch, "master"
+  set :scm_verbose, true
+  server "54.149.56.223", :app, :web, :db, :primary => true
+  set :deploy_env, "prod"
+  # deploy config
+
+  "deploy"
+
+end
 
 namespace :deploy do
 
-  desc 'Restart application'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      # Your restart mechanism here, for example:
-      execute :touch, release_path.join('tmp/restart.txt')
-    end
+  task :copy_configs, :roles => :app do
+    run "cp #{release_path}/../../shared/database.yml #{release_path}/config/database.yml"
+    # run "cp #{release_path}/config/initializers/global.rb.#{deploy_env} #{release_path}/config/initializers/global.rb"
+    run "cp #{release_path}/config/environment.rb.#{deploy_env} #{release_path}/config/environment.rb"
+    # run "cp #{release_path}/config/sphinx.yml.#{deploy_env} #{release_path}/config/sphinx.yml"
+    # run "cp #{release_path}/public/robots.txt.#{deploy_env} #{release_path}/public/robots.txt"
   end
 
-  after :publishing, :restart
+  task :migrate, :roles => :app do
+    run "cd #{release_path} && bundle exec rake db:migrate"
+  end
 
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      within release_path do
-        execute :rake, 'cache:clear'
+  task :link_shared_directories do
+    run "ln -s #{shared_path}/uploads #{release_path}/uploads"
+  end
+
+  task :restart, :roles => :app, :except => { :no_release => true } do
+
+    run "#{try_sudo} touch #{File.join(current_path, 'tmp', 'restart.txt')}"
+    # if deploy_env=="qa"
+    #   run "#{try_sudo} mkdir -p #{release_path}/tmp/cache"
+    #   run "#{try_sudo} chown -R nobody:nobody #{release_path}/tmp/cache"
+    #   run "#{try_sudo} mkdir -p #{release_path}/tmp/views"
+    #   run "#{try_sudo} chown -R nobody:nobody #{release_path}/tmp/views"
+    # end
+    if deploy_env == 'prod'
+      tag_name = Time.now.strftime("deploy_%Y_%m_%d_%H_%M")
+
+      system "git tag -a -m 'Deployment on prod' #{tag_name}"
+
+      system "git push origin #{tag_name}"
+      if $? != 0
+        raise "Pushing tag to origin failed"
       end
     end
   end
 
+
+  #task :pipeline_precompile do
+  #  run "cd #{release_path}; /usr/local/rvm/gems/ruby-1.9.2-p290/bin/bundle install"
+  #  run "cd #{release_path}; /usr/local/rvm/gems/ruby-1.9.2-p290/bin/bundle exec rake RAILS_ENV=production RAILS_GROUPS=assets assets:precompile"
+  #end
+  namespace :assets do
+    task :precompile, :roles => :web, :except => { :no_release => true } do
+      logger.info "Skipping asset pre-compilation because there were no asset changes"
+    end
+  end
 end
+
+after "deploy:update", "deploy:migrate", "deploy:cleanup"
+after "deploy:update_code", "deploy:link_shared_directories"

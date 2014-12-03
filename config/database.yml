@@ -30,7 +30,7 @@ test:
   socket: /var/run/mysqld/mysqld.sock
 
 production:
-  host: 54.69.97.227
+  host: 54.149.56.223
   adapter: mysql2
   encoding: utf8
   database: vmh_production
